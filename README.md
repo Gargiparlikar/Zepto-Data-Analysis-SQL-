@@ -74,14 +74,20 @@ Interpreted TRUE/FALSE/1/0/true/false correctly for analysis.
 ✔ 5. Checked for missing values, duplicates, and inconsistent entries
 
 ## 📊 SQL Analysis Performed
+```sql
 Q1. Top 10 Best-Value Products (Highest Discounts)
 
 Find the highest discounted products:
 
-SELECT DISTINCT name, mrp, discountPercent
+
+SELECT DISTINCT
+    name,
+    mrp,
+    discountPercent
 FROM zepto
 ORDER BY discountPercent DESC
 LIMIT 10;
+
 
 Q2. High-MRP Products That Are Out of Stock
 SELECT DISTINCT name, mrp
@@ -112,7 +118,7 @@ ORDER BY avg_discount DESC
 LIMIT 5;
 
 Q6. Price per Gram for Items Above 100g
-SELECT DISTINCT name, weightInGms, discountedSellingPrice,
+## SELECT DISTINCT name, weightInGms, discountedSellingPrice,
 ROUND(discountedSellingPrice/weightInGms,2) AS price_per_gram
 FROM zepto
 WHERE weightInGms >= 100
@@ -133,6 +139,8 @@ SUM(weightInGms * availableQuantity) AS total_weight
 FROM zepto
 GROUP BY category
 ORDER BY total_weight DESC;
+
+```
 
 # 🛠 Technologies Used
 
